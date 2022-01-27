@@ -12,5 +12,3 @@ const requestListener = function (req, res) {
   res.write('{"key":"value"}');
   res.end();
 }
-const server = http.createServer(requestListener);
-server.listen(8081);
