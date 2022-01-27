@@ -17,8 +17,6 @@
  FROM alpine:3.15 as runner
 
  COPY --from=builder . .
-
  COPY . .
-
  # exécution
  CMD ["node","/src/dist/systeminformation.js"]
