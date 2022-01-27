@@ -22,5 +22,5 @@
  RUN npm run build
 
  # exécution
- #CMD ["node","/src/dist/systeminformation.js"]
- CMD ["npm","run","watch"]
+ CMD ["node","/src/dist/systeminformation.js"]
+ #CMD ["npm","run","watch"]
