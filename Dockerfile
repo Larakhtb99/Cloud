@@ -18,6 +18,7 @@
 
  COPY --from=builder . .
 
+
  COPY . .
 
  # exécution
