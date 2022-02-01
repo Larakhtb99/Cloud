@@ -18,5 +18,6 @@
 
  COPY --from=builder /src /dist
 
+
  # exécution
  CMD ["node","/src/dist/systeminformation.js"]
