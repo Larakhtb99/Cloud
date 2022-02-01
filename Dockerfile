@@ -1,25 +1,24 @@
- # stage compilation
- FROM alpine:3.15 as builder
- 
- RUN apk update && apk add nodejs npm 
+# image de départ
+FROM alpine:3.15
 
- # chemin de travail
- WORKDIR /src
+# chemin de travail
+WORKDIR /projet-cloud
 
- COPY . .
- # installation des dépendances avec npm
- RUN npm install
+# downgrade des privilèges
+#USER mahdi
 
- # build avec npm
- RUN npm run build
+# installation des paquets système
+RUN apk add --update nodejs npm && apk add --update npm
 
- # stage exécution
- FROM alpine:3.15 as runner
+# copie des fichiers du dépôt
+COPY . .
 
- COPY --from=builder . .
+# installation des dépendances avec npm
+RUN npm install
 
+#  # build avec npm
+RUN npm run build
 
- COPY . .
-
- # exécution
- CMD ["node","/src/dist/systeminformation.js"]
+# exécution
+#  CMD ["npm","run","watch"]
+CMD ["node","/src/dist/systeminformation.js"]
